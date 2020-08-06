@@ -42,8 +42,7 @@ def get_bible_verse():
     soup = BeautifulSoup(response.content, "html.parser")
     verse = soup.find_all(id="verse-text")[0].text
     verse_url = urljoin(BIBLE_VERSE_URL, soup.find_all("div", "verse-bar")[0].contents[1]["href"])
-    tweet = f'"{verse}" - {verse_url}'
-    return tweet
+    return f'"{verse}" - {verse_url}'
 
 
 def _already_posted(tweet):
